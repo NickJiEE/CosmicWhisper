@@ -20,5 +20,15 @@ Players must solve a series of **three interconnected puzzles** to complete thei
 
 **Substances set up:** For food dyes, 1 drop of each into 50 mL vials.
 
+## Substances Wavelengths Charts Example
+Below the wavelength charts are demonstrated to show how different wavelengths are being presented.
+<p align="center">
+  <img src="images/set2.png" alt="set2">
+</p>
+
+<p align="center">
+  <img src="images/set3.png" alt="set3">
+</p>
+
 ## Components Designed
 Case, spectrometer, etc...
