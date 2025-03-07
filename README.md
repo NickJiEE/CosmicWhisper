@@ -20,8 +20,15 @@ Players must solve a series of **three interconnected puzzles** to complete thei
 
 **Substances set up:** For food dyes, 1 drop of each into 50 mL vials.
 
-## Substances Wavelengths Charts Example
-Below the wavelength charts are demonstrated to show how different wavelengths are being presented.
+## Understanding Spectroscopy and Food Dye Absorption
+# How the Spectrometer Works
+A spectrometer is an optical instrument that analyzes the composition of light by breaking it down into its **wavelength components**. It works by:
+1. Passing light through a sample (in this case, food dye solutions).
+2. Using a diffraction grating or prism to separate the light into its spectrum.
+3. Detecting the intensity of each wavelength and plotting it as a graph.
+
+When light shines through a **colored liquid**, certain wavelengths are **absorbed** by the substance while others **pass through** or are **transmitted**. The spectrometer captures these patterns, producing a **spectral absorption graph**, like the ones in the images below.
+
 <p align="center">
   <img src="images/set2.png" alt="set2">
 </p>
@@ -29,6 +36,17 @@ Below the wavelength charts are demonstrated to show how different wavelengths a
 <p align="center">
   <img src="images/set3.png" alt="set3">
 </p>
+
+# Interpreting the Spectral Plots
+Each plot shows **intensity vs. wavelength**, revealing which colors of light are absorbed or transmitted:
+- Sharp peaks indicate **high transmission** (less absorption) of that wavelength
+- Dips or missing wavelengths correspond to **absorption**, meaning the dye absorbs those colors from the light
+
+For example, in the above graphs: 
+- The first graph (Set 2) has a strong peak in the **blue/violet region** (~450 nm), suggesting that one of the substances absorbs less blue light and transmits it more
+- The second graph (Set 3) has broader peaks in the **red** and **yellow regions** (~600–650 nm), yet only one has a peak at **blue/violet region** (~450 nm), suggesting that only one substance shows obvious **blue/violet** on the spectrum
+
+By analyzing these spectra visually on the ESP32-CAM, players in the game can determine **which substances contain specific wavelengths** and use that information to unlock the puzzle answers.
 
 ## Components Designed
 Case, spectrometer, etc...
