@@ -3,7 +3,7 @@
 
 ## Substances Chart
 <p align="center">
-  <img src="images/substances chart.png" alt="substances setup" width="400">
+  <img src="images/substances_chart.png" alt="substances setup">
 </p>
 
 Set up: For food dyes, 1 drop each into a 50 mL vial.
