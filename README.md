@@ -21,7 +21,7 @@ Players must solve a series of **three interconnected puzzles** to complete thei
 **Substances set up:** For food dyes, 1 drop of each into 50 mL vials.
 
 ## Understanding Spectroscopy and Food Dye Absorption
-# How the Spectrometer Works
+### How the Spectrometer Works
 A spectrometer is an optical instrument that analyzes the composition of light by breaking it down into its **wavelength components**. It works by:
 1. Passing light through a sample (in this case, food dye solutions).
 2. Using a diffraction grating or prism to separate the light into its spectrum.
@@ -37,7 +37,7 @@ When light shines through a **colored liquid**, certain wavelengths are **absorb
   <img src="images/set3.png" alt="set3">
 </p>
 
-# Interpreting the Spectral Plots
+### Interpreting the Spectral Plots
 Each plot shows **intensity vs. wavelength**, revealing which colors of light are absorbed or transmitted:
 - Sharp peaks indicate **high transmission** (less absorption) of that wavelength
 - Dips or missing wavelengths correspond to **absorption**, meaning the dye absorbs those colors from the light
