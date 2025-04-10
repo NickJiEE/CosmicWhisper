@@ -2,6 +2,7 @@ const int Pin1 = 3;
 const int Pin2 = 4;
 const int Pin3 = 5;
 const int Pin4 = 6;
+const int Pin5;
 const int buttonPin = 2;
 
 void setup() {
@@ -13,55 +14,41 @@ void setup() {
 }
 
 void loop() {
-  // "I LOVE EE"
+  // Display Morse code
   if (digitalRead(buttonPin) == LOW) {
-    firstWord();
+    letterX(Pin1);
     delay(1500);
-    secondWord();
+    letterW(Pin2);
     delay(1500);
-    thirdWord();
+    letterX(Pin3);
     delay(1500);
-    fourthWord();
+    letterZ(Pin4);
+    delay(1500);
+    letterX(Pin5);
   }
-
 }
 
-// "I": · ·
-void firstWord() {
-  dot(Pin1);
-  dot(Pin1);
+// "W": · — —
+void letterW(int pin) {
+  dot(pin);
+  dash(pin);
+  dash(pin);
 }
 
-// "LOVE": · — · ·  — — —  · · · ·  ·
-void secondWord() {
-  dot(Pin2);
-  dash(Pin2);
-  dot(Pin2);
-  dot(Pin2);
-  delay(750); // 0.75 s gap between words
-
-  dash(Pin2);
-  dash(Pin2);
-  dash(Pin2);
-  delay(750);
-
-  dot(Pin2);
-  dot(Pin2);
-  dot(Pin2);
-  dot(Pin2);
-  delay(750);
-
-  dot(Pin2);
+// "X": — · · —
+void letterX(int pin) {
+  dash(pin);
+  dot(pin);
+  dot(pin);
+  dash(pin);
 }
 
-// "E": ·
-void thirdWord() {
-  dot(Pin3);
-}
-
-// "E": ·
-void fourthWord() {
-  dot(Pin4);
+// "Z": — — · ·
+void letterW(int pin) {
+  dash(pin);
+  dash(pin);
+  dot(pin);
+  dot(pin);
 }
 
 // Morse code
