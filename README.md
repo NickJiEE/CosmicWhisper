@@ -26,7 +26,7 @@ Players must solve a series of **three interconnected puzzles** to complete thei
 | **Food Dyes 1** | Which substance is missing wavelengths **Blue & Green** on the spectrum? | ➀ Fruit Green<br>➁ Sunset Yellow<br>➂ Lemon Yellow | **➁ Sunset Yellow** | Not obvious due to similar colors.|
 | **Food Dyes 2** | Which substance has the **most wavelengths** on the spectrum? | ➃ Sunset Red<br>➄ Royal Blue<br>➅ Grape Violet | **➅ Grape Violet** | Unexpected due to its dark color. |
 | **Food Dyes 3** | Which substance has the wavelength **Violet** on the spectrum? | ➆ Super Red<br>➇ Deep Pink<br>➈ Chocolate Brown | **➇ Deep Pink** | Not expected to be known. |
-| **Fluorescent Powder** | Which substance glows **Light Blue** under UV light? | ⓵ Olivine<br>⓶ Blue Green<br>⓷ Sky Blue | **⓶ Blue Green** | Identical under daylight. |
+| **Fluorescent Powder** | Which substance glows **Light Blue** under UV light? | ⓵ Sky Blue<br>⓶ Blue Green<br>⓷ Olivine | **⓵ Sky Blue** | Identical under daylight. |
 
 **Substances set up:** For food dyes, 1-1.5 drops each, into 50 mL vials.
 
