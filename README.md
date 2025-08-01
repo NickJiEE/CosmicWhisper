@@ -66,8 +66,6 @@ By analyzing these spectra visually using the spectrometer, players in the game 
   <img src="images/CAD/case_top.png" alt="case top" width="25%">
 </p>
 
-[View 3D model](CAD Files/.glb Files/case.glb)
-
 ### Samples Holders
 <p align="center">
   <img src="images/CAD/vials_holder.png" alt="vials holder" width="35%">
