@@ -21,11 +21,14 @@ Players must solve a series of **three interconnected puzzles** to complete thei
 3. **Signal Transmission Puzzle:** Align the signal tower (a laser pointer mounted on a servo motor) to the sun using the control panel, setting the correct coordinates. When the LED strips light up, it confirms the signal has been successfully transmitted, completing the game.
 
 ## Substances Chart
-<p align="center">
-  <img src="images/substances_chart.png" alt="substances setup">
-</p>
+| Set | Question | Choices | Correct Answer | Reasoning |
+|----------|----------|:----------|:----------:|----------|
+| **Food Dyes 1** | Which substance is missing wavelengths **Blue & Green** on the spectrum? | ➀ Fruit Green<br>➁ Sunset Yellow<br>➂ Lemon Yellow | **➁ Sunset Yellow** | Not obvious due to similar colors.|
+| **Food Dyes 2** | Which substance has the **most wavelengths** on the spectrum? | ➃ Sunset Red<br>➄ Royal Blue<br>➅ Grape Violet | **➅ Grape Violet** | Unexpected due to its dark color. |
+| **Food Dyes 3** | Which substance has the wavelength **Violet** on the spectrum? | ➆ Super Red<br>➇ Deep Pink<br>➈ Chocolate Brown | **➇ Deep Pink** | Not expected to be known. |
+| **Fluorescent Powder** | Which substance glows **Light Blue** under UV light? | ⓵ Olivine<br>⓶ Blue Green<br>⓷ Sky Blue | **⓶ Blue Green** | Identical under daylight. |
 
-**Substances set up:** For food dyes, 1 drop of each into 50 mL vials.
+**Substances set up:** For food dyes, 1-1.5 drops each, into 50 mL vials.
 
 ## Understanding Spectroscopy and Food Dye Absorption
 ### How the Spectrometer Works
