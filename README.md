@@ -4,14 +4,18 @@
   <img src="images/Cosmic Whisper.png" alt="theme">
 </p>
 
-_Cosmic Whisper_ is an interactive educational game developed to inspire interest in optics and electrical engineering through immersive and hands-on problem solving. Designed under Professor Saharnaz's supervise at UC San Diego, the game simulates a mission in which players act as scientists attempting to communicate with an alien civilization orbiting a chaotic three-star system, drawing inspiration from _The Three-Body Problem_. Players must solve a series of challenges involving light transmission and absorption, spectroscopy, optical ciphers (Morse code and Vigenère), and intensity modulation. These tasks introduce foundational physics and engineering concepts in a dynamic and exploratory format.
-The final stage expands the game’s interactivity through real-time audio and light processing. It includes digital frequency detection using a microphone and FFT on an ESP32 to map sound frequency to LED colors and a digital envelope follower to control LED brightness based on sound amplitude. These elements demonstrate signal processing, circuit design, and optoelectronic feedback in an accessible way.
+## Introduction
+_Cosmic Whisper_ is an interactive educational game developed to inspire interest in optics and electrical engineering through immersive and hands-on problem solving. Designed under Professor Saharnaz's supervise at UC San Diego, the game simulates a mission in which players act as scientists attempting to communicate with an alien civilization orbiting a chaotic three-star system, drawing inspiration from _The Three-Body Problem_. Packaged in a durable stainless steel housing and driven by an ESP32-S3 microcontroller, the game challenges players through a multi‑stage puzzle sequence that blends hands‑on experiments with digital logic. 
+
+Players must solve a series of challenges involving light transmission and absorption, spectroscopy, optical ciphers (Morse code and Vigenère), and light intensity modulation. These tasks introduce foundational physics and engineering concepts in a dynamic and exploratory format.
+The final stage expands the game’s interactivity through real-time audio and light processing. It includes digital frequency detection using a microphone and FFT on an ESP32-S3 to map sound frequency to LED colors and a digital envelope follower to control LED brightness based on sound amplitude. These elements demonstrate signal processing, circuit design, and optoelectronic feedback in an accessible way.
 Cosmic Whisper will be showcased at outreach events to engage K-12 and general audiences, making complex scientific principles more visible and exciting. Through playful experimentation, the project promotes STEM learning and demonstrates the creative intersection of science, engineering, and game design.
 
-## Materials Required
-The game is built using a combination of **3D-printed components** and **electronic hardware**, including:
-- **Optical Components:** Diffraction grating slide, light source (flashlight/light bulb), glass/plastic containers, laser pointers
-- **Electronics & Sensors:** ESP32-CAM, ESP32, LEDs, linear actuator, relay module, IR LED, IR sensor, IR remote, LED strips, number pad, servo motor
+## Materials Used
+The game is built using a combination of **3D-printed components**, **optics materials**, and **electronic hardware**, including:
+- **Optical Components:** Diffraction grating slide, flashlight, UV light, mirrors
+- **Electronics & Sensors:** FREENOVE ESP32-S3 WROOM, 3x4 matrix array keypad, I2C LCD 1602 Module (5V), linear actuator, BTS7960 Half-Bridge Motor Driver, LEDs, 4 pin switch button, RGB LED, MAX4466 electret microphone amplifier, TCS34725 RGB color sensor, 5V and 12V power supply, silicone wires, protoboard, pin headers
+- **Miscellaneous:** Food dyes, fluorescent powders, glass/plastic containers, M5 screws/nuts/washers
 
 ## Game Logistics
 Players must solve a series of **three interconnected puzzles** to complete their mission:
@@ -112,14 +116,25 @@ By analyzing these spectra visually using the spectrometer, players in the game 
   <img src="images/CAD/board_center_pillar.png" alt="board center pillar" width="30%">
 </p>
 
-## Technical Info
-### ESP32-S3 MCU Programming
-Designed and programmed the entire flow of the game in one .cpp file.
+## Technical Skills & Tools Used
+### Embedded Firmware & Microcontroller
+Arduino/C++ development on ESP32-S3 with PSRAM, managing game flow, sensor integration (RGB sensor, microphone), FFT audio analysis, and actuator control.
 
-### Components and Wire Management
-Most components have the ability to be uninstalled easily. Soldered all components using pre-crimped silicone cables to keep everything clean and easy to manage and maintenance. Clean wire management to have a neat place.
+### Optics & Spectroscopy
+Design and prototyping of a custom spectrometer, calibration with food dye samples, and fluorescence assays with UV excitation.
 
-### Metal Laser Cutting
-Using a fablight FL4500 laser cutter, a SAE 304 stainless steel was cut and engraved from the designed .dxf files.
+### Mechanical Design & Fabrication
+Laser‑cutting SAE 304 stainless steel mounting board, engraving project and author details, and 3D‑printing custom supports, and purchasing ergonomic handles.
 
+### Electrical Design & Soldering
+Schematic capture in KiCAD, component placement planning, and precision soldering using pre‑crimped silicone cables, pins, and sockets for modular assembly.
+
+### Signal Processing & Cryptography
+Real‑time FFT for frequency detection, amplitude modulation, Morse code LED signaling, and Vigenère cipher implementation with ASCII mapping.
+
+### Software Tools & Version Control
+GitHub for source control and documentation, KiCAD for PCB/schematic design, and Fusion 360 for 3D part modeling.
+
+### Prototyping & Testing
+Iterative component optimization, end‑to‑end functional testing, and calibration under varied lighting and audio conditions.
 
