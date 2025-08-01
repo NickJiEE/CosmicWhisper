@@ -1,4 +1,4 @@
-# Cosmic Whisper
+<img width="692" height="721" alt="image" src="https://github.com/user-attachments/assets/9210c356-9492-425c-b97b-396eaa818b79" /># Cosmic Whisper
 
 <p align="center">
   <img src="images/Cosmic Whisper.png" alt="theme">
@@ -59,29 +59,58 @@ For example, in the above graphs:
 By analyzing these spectra visually using the spectrometer, players in the game can determine **which substances contain specific wavelengths** and use that information to unlock the puzzle answers.
 
 ## Components Designed
-### Part 1 Components
-#### Spectrometer
+### Spectrometer
 <p align="center">
-  <img src="images/CAD/case_side.png" alt="case side">
-</p>
-<p align="center">
-  <img src="images/CAD/case_top.png" alt="case top">
+  <img src="images/CAD/case_side.png" alt="case side" width="30%">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/CAD/case_top.png" alt="case top" width="30%">
 </p>
 
-#### Samples Holders
+### Samples Holders
 <p align="center">
-  <img src="images/CAD/vials_holder.png" alt="vials holder">
+  <img src="images/CAD/vials_holder.png" alt="vials holder" width="35%">
 </p>
 <p align="center">
-  <img src="images/CAD/samples_holder.png" alt="samples holder">
-</p>
-<p align="center">
-  <img src="images/CAD/samples_holder_opened.png" alt="samples holder opened">
-</p>
-
-#### Linear Actuator Mount
-<p align="center">
-  <img src="images/CAD/linear_actuator_mount.png" alt="linear actuator mount">
+  <img src="images/CAD/samples_holder.png" alt="samples holder" width="30%">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/CAD/samples_holder_opened.png" alt="samples holder opened" width="30%">
 </p>
 
-####
+### Linear Actuator Mount
+<p align="center">
+  <img src="images/CAD/linear_actuator_mount.png" alt="linear actuator mount" width="35%">
+</p>
+
+### Center Console
+<p align="center">
+  <img src="images/CAD/keypad.png" alt="center console" width="30%">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/CAD/keypad_opened.png" alt="center console opened" width="30%">
+</p>
+
+### Morse Code Case
+<p align="center">
+  <img src="images/CAD/morse_code_case.png" alt="Morse Code case" width="35%">
+</p>
+
+### Sensors Case
+<p align="center">
+  <img src="images/CAD/sensors_case.png" alt="sensors case" width="30%">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/CAD/sensors_case_opened.png" alt="sensors case opened" width="30%">
+</p>
+
+### SAE 304 Stainless Steel Board
+<p align="center">
+  <img src="images/CAD/stainless_steel_board_dxf.png" alt="board DXF" width="35%">
+</p>
+
+### Board Supports
+<p align="center">
+  <img src="images/CAD/board_leg.png" alt="board_leg" width="30%">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="images/CAD/board_center_pillar.png" alt="board center pillar" width="30%">
+</p>
+
+
+
