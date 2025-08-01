@@ -4,8 +4,8 @@
   <img src="images/Cosmic Whisper.png" alt="theme">
 </p>
 
-_Cosmic Whisper_ is an interactive educational game developed to inspire interest in optics and electrical engineering through immersive and hands-on problem solving. Designed under the guidance of Professor Saharnaz at UC San Diego, the game simulates a mission in which players act as scientists attempting to communicate with an alien civilization orbiting a chaotic three-star system, drawing inspiration from the _Three-Body Problem_. Players must solve a series of challenges involving light transmission and absorption, spectroscopy, optical ciphers (Morse code and Vigenère), and intensity modulation. These tasks introduce foundational physics and engineering concepts in a dynamic and exploratory format.
-The final stage expands the game’s interactivity through real-time audio and light processing. It includes digital frequency detection using a microphone and FFT on an ESP32 to map sound frequency to LED colors, an analog envelope follower circuit to control LED brightness based on sound amplitude, and a light-activated motor system using a photodiode and ESP32 to trigger motion based on detected light intensity. These elements demonstrate signal processing, circuit design, and optoelectronic feedback in an accessible way.
+_Cosmic Whisper_ is an interactive educational game developed to inspire interest in optics and electrical engineering through immersive and hands-on problem solving. Designed under Professor Saharnaz's supervise at UC San Diego, the game simulates a mission in which players act as scientists attempting to communicate with an alien civilization orbiting a chaotic three-star system, drawing inspiration from _The Three-Body Problem_. Players must solve a series of challenges involving light transmission and absorption, spectroscopy, optical ciphers (Morse code and Vigenère), and intensity modulation. These tasks introduce foundational physics and engineering concepts in a dynamic and exploratory format.
+The final stage expands the game’s interactivity through real-time audio and light processing. It includes digital frequency detection using a microphone and FFT on an ESP32 to map sound frequency to LED colors and a digital envelope follower to control LED brightness based on sound amplitude. These elements demonstrate signal processing, circuit design, and optoelectronic feedback in an accessible way.
 Cosmic Whisper will be showcased at outreach events to engage K-12 and general audiences, making complex scientific principles more visible and exciting. Through playful experimentation, the project promotes STEM learning and demonstrates the creative intersection of science, engineering, and game design.
 
 ## Materials Required
@@ -112,5 +112,14 @@ By analyzing these spectra visually using the spectrometer, players in the game 
   <img src="images/CAD/board_center_pillar.png" alt="board center pillar" width="30%">
 </p>
 
+## Technical Info
+### ESP32-S3 MCU Programming
+Designed and programmed the entire flow of the game in one .cpp file.
+
+### Components and Wire Management
+Most components have the ability to be uninstalled easily. Soldered all components using pre-crimped silicone cables to keep everything clean and easy to manage and maintenance. Clean wire management to have a neat place.
+
+### Metal Laser Cutting
+Using a fablight FL4500 laser cutter, a SAE 304 stainless steel was cut and engraved from the designed .dxf files.
 
 
