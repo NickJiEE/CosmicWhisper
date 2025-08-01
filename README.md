@@ -56,7 +56,32 @@ For example, in the above graphs:
 - The first graph (Set 2) has a strong peak in the **blue/violet region** (~450 nm), suggesting that one of the substances absorbs less blue light and transmits it more
 - The second graph (Set 3) has broader peaks in the **red** and **yellow regions** (~600–650 nm), yet only one has a peak at **blue/violet region** (~450 nm), suggesting that only one substance shows obvious **blue/violet** on the spectrum
 
-By analyzing these spectra visually on the ESP32-CAM, players in the game can determine **which substances contain specific wavelengths** and use that information to unlock the puzzle answers.
+By analyzing these spectra visually using the spectrometer, players in the game can determine **which substances contain specific wavelengths** and use that information to unlock the puzzle answers.
 
 ## Components Designed
-Case, spectrometer, etc...
+### Part 1 Components
+#### Spectrometer
+<p align="center">
+  <img src="images/case_side.png" alt="case side">
+</p>
+<p align="center">
+  <img src="images/case_top.png" alt="case top">
+</p>
+
+#### Samples Holders
+<p align="center">
+  <img src="images/vials_holder.png" alt="vials holder">
+</p>
+<p align="center">
+  <img src="images/samples_holder.png" alt="samples holder">
+</p>
+<p align="center">
+  <img src="images/samples_holder_opened.png" alt="samples holder opened">
+</p>
+
+#### Linear Actuator Mount
+<p align="center">
+  <img src="images/linear_actuator_mount.png" alt="linear actuator mount">
+</p>
+
+####
