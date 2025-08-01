@@ -61,9 +61,9 @@ By analyzing these spectra visually using the spectrometer, players in the game 
 ## Components Designed
 ### Spectrometer
 <p align="center">
-  <img src="images/CAD/case_side.png" alt="case side" width="30%">
+  <img src="images/CAD/case_side.png" alt="case side" width="35%">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="images/CAD/case_top.png" alt="case top" width="30%">
+  <img src="images/CAD/case_top.png" alt="case top" width="25%">
 </p>
 
 ### Samples Holders
