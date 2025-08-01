@@ -62,26 +62,26 @@ By analyzing these spectra visually using the spectrometer, players in the game 
 ### Part 1 Components
 #### Spectrometer
 <p align="center">
-  <img src="images/case_side.png" alt="case side">
+  <img src="images/CAD/case_side.png" alt="case side">
 </p>
 <p align="center">
-  <img src="images/case_top.png" alt="case top">
+  <img src="images/CAD/case_top.png" alt="case top">
 </p>
 
 #### Samples Holders
 <p align="center">
-  <img src="images/vials_holder.png" alt="vials holder">
+  <img src="images/CAD/vials_holder.png" alt="vials holder">
 </p>
 <p align="center">
-  <img src="images/samples_holder.png" alt="samples holder">
+  <img src="images/CAD/samples_holder.png" alt="samples holder">
 </p>
 <p align="center">
-  <img src="images/samples_holder_opened.png" alt="samples holder opened">
+  <img src="images/CAD/samples_holder_opened.png" alt="samples holder opened">
 </p>
 
 #### Linear Actuator Mount
 <p align="center">
-  <img src="images/linear_actuator_mount.png" alt="linear actuator mount">
+  <img src="images/CAD/linear_actuator_mount.png" alt="linear actuator mount">
 </p>
 
 ####
