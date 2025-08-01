@@ -1,4 +1,4 @@
-<img width="692" height="721" alt="image" src="https://github.com/user-attachments/assets/9210c356-9492-425c-b97b-396eaa818b79" /># Cosmic Whisper
+# Cosmic Whisper
 
 <p align="center">
   <img src="images/Cosmic Whisper.png" alt="theme">
