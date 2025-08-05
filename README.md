@@ -5,9 +5,7 @@
 </p>
 
 ## Introduction
-_Cosmic Whisper_ is an interactive educational game developed to inspire interest in optics and electrical engineering through immersive and hands-on problem solving. Designed under Professor Saharnaz's supervise at UC San Diego, the game simulates a mission in which players act as scientists attempting to communicate with an alien civilization orbiting a chaotic three-star system, drawing inspiration from _The Three-Body Problem_. Packaged in a durable stainless steel housing and driven by an ESP32-S3 microcontroller, the game challenges players through a multi‑stage puzzle sequence that blends hands‑on experiments with digital logic. 
-
-Through my design and collaboration with a team member, all the game systems also connect to Wi-Fi to send and receive real-time game status data using web service requests onto a Google Sheets, with support of App Scripts. This allows clean management for events since there will be multiple games being played.
+_Cosmic Whisper_ is an interactive educational game developed to inspire interest in optics and electrical engineering through immersive and hands-on problem solving. Designed under Professor Saharnaz's supervise at UC San Diego, the game simulates a mission in which players act as scientists attempting to communicate with an alien civilization orbiting a chaotic three-star system, drawing inspiration from _The Three-Body Problem_. Packaged in a durable stainless steel housing and driven by an ESP32-S3 microcontroller, the game challenges players through a multi‑stage puzzle sequence that blends hands‑on experiments with digital logic.
 
 Players must solve a series of challenges involving light transmission and absorption, spectroscopy, optical ciphers (Morse code and Vigenère), and light intensity modulation. These tasks introduce foundational physics and engineering concepts in a dynamic and exploratory format. The final stage expands the game’s interactivity through real-time audio and light processing. It includes digital frequency detection using a microphone and FFT on an ESP32-S3 to map sound frequency to LED colors and a digital envelope follower to control LED brightness based on sound amplitude. These elements demonstrate signal processing, circuit design, and optoelectronic feedback in an accessible way.
 
@@ -133,6 +131,9 @@ Schematic capture in KiCAD, component placement planning, and precision solderin
 
 ### Signal Processing & Cryptography
 Real‑time FFT for frequency detection, amplitude modulation, Morse code LED signaling, and Vigenère cipher implementation with ASCII mapping.
+
+#### Networking & Cloud Integration
+Wi-Fi connectivity with ESP32-S3 in STA mode, HTTP-based communication with Google Sheets via Apps Script, real-time game state synchronization using web service requests for both data logging and remote game progression.
 
 ### Software Tools & Version Control
 GitHub for source control and documentation, KiCAD for PCB/schematic design, and Fusion 360 for 3D part modeling.
