@@ -141,4 +141,9 @@ GitHub for source control and documentation, KiCAD for PCB/schematic design, and
 ### Prototyping & Testing
 Iterative component optimization, end‑to‑end functional testing, and calibration under varied lighting and audio conditions.
 
-This project is licensed under MIT License. You’re welcome to use, modify, and share it, just make sure to give credit 😊.
+## Acknowledgments
+✨ Thanks for checking out **CosmicWhisper**!
+
+Special thanks to **Professor Saharnaz** for the mentorship and **ECE Makerspace** for the fabrication & resource supports!
+
+Feel free to replicate or build upon this project, just make sure to give credit as outlined in the [MIT License](LICENSE) 😊.
