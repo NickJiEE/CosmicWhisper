@@ -142,7 +142,7 @@ GitHub for source control and documentation, KiCAD for PCB/schematic design, and
 Iterative component optimization, end‑to‑end functional testing, and calibration under varied lighting and audio conditions.
 
 ## Acknowledgments
-✨ Thanks for checking out **CosmicWhisper**!
+✨ Thanks for checking out **The Cosmic Whisper**!
 
 Special thanks to **Professor Saharnaz** for the mentorship and **ECE Makerspace** for the fabrication & resource supports!
 
