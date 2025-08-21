@@ -11,6 +11,10 @@ Players must solve a series of challenges involving light transmission and absor
 
 Cosmic Whisper will be showcased at outreach events to engage K-12 and general audiences, making complex scientific principles more visible and exciting. Through playful experimentation, the project promotes STEM learning and demonstrates the creative intersection of science, engineering, and game design.
 
+<p align="center">
+  <img src="images/setup.jpg" alt="setup">
+</p>
+
 ## Materials Used
 The game is built using a combination of **3D-printed components**, **optics materials**, and **electronic hardware**, including:
 - **Optical Components:** Diffraction grating slide, flashlight, UV light, mirrors
