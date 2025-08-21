@@ -120,6 +120,11 @@ By analyzing these spectra visually using the spectrometer, players in the game 
   <img src="images/CAD/board_center_pillar.png" alt="board center pillar" width="30%">
 </p>
 
+## Schematic
+<p align="center">
+  <img src="images/cosmic_whisper_sch.png" alt="schematic">
+</p>
+
 ## Technical Skills & Tools Used
 ### Embedded Firmware & Microcontroller
 Arduino/C++ development on ESP32-S3 with PSRAM, managing game flow, sensor integration (RGB sensor, microphone), FFT audio analysis, and actuator control.
