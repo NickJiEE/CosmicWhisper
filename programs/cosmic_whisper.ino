@@ -7,7 +7,7 @@
   embedded logic.
 
   Created by: Nick Ji
-  Project Date: January - August 2025
+  Project Date: January - September 2025
   Platform: ESP32-S3 with TFT display, sensors, and actuators
 
   “When science whispers, curiosity listens.”
@@ -28,6 +28,10 @@
 
 // ========== Google Sheet Communications ==========
 #define DEVICE_NAME "game_6"
+#define NUM_GROUPS 5
+
+int groupCodes[NUM_GROUPS] = {738, 291, 465, 823, 679};
+int currentGroupId = -1;
 
 // Wi-Fi Credentials
 const char* ssid = "UCSD-GUEST"; // Wi-Fi SSID
@@ -38,7 +42,7 @@ const unsigned long wifiCheckInterval = 10000; // Check every 10 seconds
 void connectToWiFi(bool verbose = true);
 
 // Apps Script URL for Sheet
-String Web_App_URL = "https://script.google.com/macros/s/AKfycby6tQuxwJNh96bDOGEywhGtjb037TwChgm3f7RJI5lEb7PyBRkS998mO30AnnCaW5f9rg/exec";
+String Web_App_URL = "https://script.google.com/a/macros/ucsd.edu/s/AKfycbylYj14j-Y-WTBLZ2l4LxsU1RmxNhvZmAZLOcgfZTPV1ZZnaDTxIpyOGvEXcoTHCaVheA/exec";
 
 // ========== GAME 1 PINS ==========
 // keypad PINs
@@ -105,6 +109,10 @@ byte colPins[COLS] = {C1, C2, C3};
 
 Keypad* keypadPtr = nullptr;
 
+// changes mode between group ID and password
+enum InputMode { ENTER_GROUP, ENTER_PASSWORD };
+InputMode inputMode = ENTER_GROUP;
+
 // FFT configuration
 const uint16_t samples = 256;
 const double samplingFrequency = 4000;  // Hz
@@ -116,7 +124,7 @@ ArduinoFFT<double> FFT = ArduinoFFT<double>(vReal, vImag, samples, samplingFrequ
 double envelopePeak = 0;
 
 // passwords for stages 1 and 2 (first two are for unlocking stage 2)
-const String stagePasswords[3] = {"2681", "0143", "87808"};
+const String stagePasswords[3] = {"2681", "0143", "79239"};
 int currentStage = 0;
 int warningCount = 0;
 String inputBuffer = "";
@@ -430,7 +438,6 @@ void loop() {
       gameStatus = 1;
       showMessage("Congrats! You", 0, true, 0);
       showMessage("saved the world!", 1, false, 2500);
-      sendDataToGoogleSheet();
       displayNextGame();
     }
   }
@@ -476,38 +483,24 @@ void connectToWiFi(bool verbose) {
   }
 }
 
-// send data to Google Sheets
-void sendDataToGoogleSheet() {
-  if (WiFi.status() == WL_CONNECTED) {
-    String Send_Data_URL = Web_App_URL + "?action=espwrite&game=" + String(DEVICE_NAME);
-
-    /*
-    Serial.println("Send data to Google Spreadsheet...");
-    Serial.print("URL : ");
-    Serial.println(Send_Data_URL);
-    */
-
-    showMessage("Sending data...", 0, true, 2000);
+// Send game status to Google Sheets
+void sendGameStart() {
+  if (WiFi.status() == WL_CONNECTED && currentGroupId > 0) {
+    String url = Web_App_URL + "?action=start" +
+                 "&game=" + String(DEVICE_NAME) +
+                 "&group=group_" + String(currentGroupId);
 
     HTTPClient http;
-    http.begin(Send_Data_URL.c_str());
+    http.begin(url.c_str());
     http.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
     int httpCode = http.GET();
 
-    // Serial.print("HTTP Status Code : ");
-    // Serial.println(httpCode);
-
-    if (httpCode > 0) {
-      String payload = http.getString();
-      // Serial.println("Payload : " + payload);
-    } else {
-      // Serial.println("Failed to send data");
+    if (httpCode < 0) {
+      showMessage("Request failed!", 0, true, 0);
+      showMessage("See a staff", 1, false, 2000);
     }
-    
     http.end();
-    showMessage("Data sent!", 0, true, 2000);
   } else {
-    // Serial.println("WiFi not connected");
     showMessage("WiFi not connected!", 0, true, 0);
   }
 }
@@ -516,13 +509,9 @@ void sendDataToGoogleSheet() {
 void displayNextGame() {
   if (WiFi.status() == WL_CONNECTED) {
     // construct the request URL
-    String nextGameUrl = Web_App_URL + "?action=espread&game=" + String(DEVICE_NAME);
-
-    /*
-    Serial.println("Receiving data from Google Spreadsheet...");
-    Serial.print("URL : ");
-    Serial.println(nextGameUrl);
-    */
+    String nextGameUrl = Web_App_URL + "?action=done" +
+                 "&game=" + String(DEVICE_NAME) +
+                 "&group=group_" + String(currentGroupId);
 
     showMessage("Loading data...", 0, true, 0);
     
@@ -530,13 +519,10 @@ void displayNextGame() {
     http.setConnectTimeout(5000);  // 5 seconds
     http.begin(nextGameUrl.c_str());
     http.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
-    int httpCode = http.GET();  // make the GET request
-    // Serial.print("HTTP Status Code : ");
-    // Serial.println(httpCode);
+    int httpCode = http.GET();
 
     if (httpCode > 0) {
-      String payload = http.getString();  // get the response from Apps Script
-      Serial.println("Payload : " + payload);  // print the payload
+      String payload = http.getString();
 
       // display next game
       showMessage("Next Game: ", 0, true, 0);
@@ -545,8 +531,7 @@ void displayNextGame() {
       showMessage("Press the button", 0, true, 0);
       showMessage("to see magic ;)", 1, false, 0);
     } else {
-      // Serial.println("Failed to receive data");
-      showMessage("Data fetch failed!", 0, true, 0);
+      showMessage("Data fetch failed!", 0, true, 1000);
       showMessage("Please contact", 0, true, 0);
       showMessage("a staff!", 1, false, 5000);
       
@@ -597,9 +582,9 @@ void scrollMessage(const String &msg, int row, unsigned long delayMs) {
 
 // initial prompt
 void setupGame1Display() {
-  showMessage("Hello, Scientists ;)", 0, true, 500);
-  showMessage("Save the world!", 0, true, 1500);
-  showMessage("Security Wall 1:", 0, true, 1000);
+  showMessage("Enter Group ID:", 0, true, 0);
+  inputBuffer = "";
+  inputMode = ENTER_GROUP;
 }
 
 // ========== Keypad FUNCTION ==========
@@ -607,47 +592,89 @@ void processKeypad() {
   char key = keypadPtr->getKey();
   if (!key) return;
 
-  if (key == '#') {
-    if (inputBuffer == stagePasswords[currentStage]) {
-      currentStage++;
-      inputBuffer = "";
-      if (currentStage == 1 && !actuatorDone) {
-        showMessage("Access Granted:", 0, true, 0);
-        // actuator sequence
-        // retracting
-        showMessage("Opening...", 1, false, 0);
-        analogWrite(RPWM, 0); analogWrite(LPWM, 200); delay(3000);
-        analogWrite(RPWM, 0); analogWrite(LPWM, 0); delay(10000);
-
-        // extending
-        showMessage("Closing...", 1, false, 0);
-        analogWrite(RPWM, 200); analogWrite(LPWM, 0); delay(3000);
-        analogWrite(RPWM, 0); analogWrite(LPWM, 0); delay(1000);
-        actuatorDone = true;
-        showMessage("Security Wall 2:", 0, true, 0);
-      } else if (currentStage < 3) {
-        showMessage("Access Granted:", 0, true, 0);
-        showMessage("Decyphering", 1, false, 2000);
-      } else {
-        showMessage("Complete Access", 0, true, 0);
-        showMessage("Granted!", 1, false, 2750);
-        // move to Game2
+  if (inputMode == ENTER_GROUP) {
+    // ----- GROUP ID ENTRY -----
+    if (key == '#') {
+      int inputCode = inputBuffer.toInt();
+      bool valid = false;
+      for (int i = 0; i < NUM_GROUPS; i++) {
+        if (groupCodes[i] == inputCode) {
+          currentGroupId = i + 1; // group_1 = 1
+          valid = true;
+          break;
+        }
       }
-    } else {
-      showMessage("Nah uh!", 0, true, 0);
-      showMessage("Try again.", 1, false, 1500);
-      showMessage("Security Wall " + String(currentStage + 1) + ":", 0, true, 0);
+
+      if (valid) {
+        showMessage("Hello Scientists ;)", 0, true, 500);
+        showMessage("Save the world!", 0, true, 1500);
+        showMessage("Security Wall 1:", 0, true, 1000);
+
+        inputBuffer = "";
+        inputMode = ENTER_PASSWORD;  // switch to normal game mode
+
+        // ===== Start the game in Sheets =====
+        sendGameStart();
+      } else {
+        showMessage("Invalid ID!", 0, true, 1000);
+        showMessage("Enter Group ID:", 0, true, 0);
+      }
       inputBuffer = "";
     }
-  }
-  else if (key == '*') {
-    inputBuffer = "";
-    showMessage("Input cleared", 0, true, 1000);
-    showMessage("Security Wall " + String(currentStage + 1) + ":", 0, true, 0);
-  } else {
-    inputBuffer += key;
-    lcd.setCursor(inputBuffer.length() - 1, 1);
-    lcd.print(key);
+    else if (key == '*') {
+      inputBuffer = "";
+      showMessage("Input cleared", 0, true, 1000);
+      showMessage("Enter Group ID:", 0, true, 0);
+    } else {
+      inputBuffer += key;
+      lcd.setCursor(inputBuffer.length() - 1, 1);
+      lcd.print(key);
+    }
+  } 
+
+  else if (inputMode == ENTER_PASSWORD) {
+    if (key == '#') {
+      if (inputBuffer == stagePasswords[currentStage]) {
+        currentStage++;
+        inputBuffer = "";
+        if (currentStage == 1 && !actuatorDone) {
+          showMessage("Access Granted:", 0, true, 0);
+          // actuator sequence
+          // retracting
+          showMessage("Opening...", 1, false, 0);
+          analogWrite(RPWM, 0); analogWrite(LPWM, 200); delay(3000);
+          analogWrite(RPWM, 0); analogWrite(LPWM, 0); delay(10000);
+
+          // extending
+          showMessage("Closing...", 1, false, 0);
+          analogWrite(RPWM, 200); analogWrite(LPWM, 0); delay(3000);
+          analogWrite(RPWM, 0); analogWrite(LPWM, 0); delay(1000);
+          actuatorDone = true;
+          showMessage("Security Wall 2:", 0, true, 0);
+        } else if (currentStage < 3) {
+          showMessage("Access Granted:", 0, true, 0);
+          showMessage("Decyphering", 1, false, 2000);
+        } else {
+          showMessage("Complete Access", 0, true, 0);
+          showMessage("Granted!", 1, false, 2750);
+          // move to Game2
+        }
+      } else {
+        showMessage("Nah uh!", 0, true, 0);
+        showMessage("Try again.", 1, false, 1500);
+        showMessage("Security Wall " + String(currentStage + 1) + ":", 0, true, 0);
+        inputBuffer = "";
+      }
+    }
+    else if (key == '*') {
+      inputBuffer = "";
+      showMessage("Input cleared", 0, true, 1000);
+      showMessage("Security Wall " + String(currentStage + 1) + ":", 0, true, 0);
+    } else {
+      inputBuffer += key;
+      lcd.setCursor(inputBuffer.length() - 1, 1);
+      lcd.print(key);
+    }
   }
 }
 
