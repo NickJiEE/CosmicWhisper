@@ -42,7 +42,7 @@ const unsigned long wifiCheckInterval = 10000; // Check every 10 seconds
 void connectToWiFi(bool verbose = true);
 
 // Apps Script URL for Sheet
-String Web_App_URL = "https://script.google.com/a/macros/ucsd.edu/s/AKfycbylYj14j-Y-WTBLZ2l4LxsU1RmxNhvZmAZLOcgfZTPV1ZZnaDTxIpyOGvEXcoTHCaVheA/exec";
+String Web_App_URL = "https://script.google.com/macros/s/AKfycbylYj14j-Y-WTBLZ2l4LxsU1RmxNhvZmAZLOcgfZTPV1ZZnaDTxIpyOGvEXcoTHCaVheA/exec";
 
 // ========== GAME 1 PINS ==========
 // keypad PINs
@@ -493,6 +493,7 @@ void sendGameStart() {
     HTTPClient http;
     http.begin(url.c_str());
     http.setFollowRedirects(HTTPC_STRICT_FOLLOW_REDIRECTS);
+
     int httpCode = http.GET();
 
     if (httpCode < 0) {
@@ -606,15 +607,15 @@ void processKeypad() {
       }
 
       if (valid) {
+        // ===== Start the game in Sheets =====
+        sendGameStart();
+
         showMessage("Hello Scientists ;)", 0, true, 500);
         showMessage("Save the world!", 0, true, 1500);
         showMessage("Security Wall 1:", 0, true, 1000);
 
         inputBuffer = "";
         inputMode = ENTER_PASSWORD;  // switch to normal game mode
-
-        // ===== Start the game in Sheets =====
-        sendGameStart();
       } else {
         showMessage("Invalid ID!", 0, true, 1000);
         showMessage("Enter Group ID:", 0, true, 0);
