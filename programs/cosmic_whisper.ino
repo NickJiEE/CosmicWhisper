@@ -39,8 +39,6 @@ const char* password = ""; // Wi-Fi Password (empty if none)
 unsigned long lastWiFiCheckTime = 0;
 const unsigned long wifiCheckInterval = 10000; // Check every 10 seconds
 
-void connectToWiFi(bool verbose = true);
-
 // Apps Script URL for Sheet
 String Web_App_URL = "https://script.google.com/macros/s/AKfycbylYj14j-Y-WTBLZ2l4LxsU1RmxNhvZmAZLOcgfZTPV1ZZnaDTxIpyOGvEXcoTHCaVheA/exec";
 
@@ -136,8 +134,9 @@ bool game3Started = false;
 bool gameStatus = 0; // haven't won
 
 // function prototypes
-void showMessage(const String &msg, int row = 0, bool clearFirst = true, unsigned long waitMs = 0);
-void scrollMessage(const String &msg, int row = 0, unsigned long delayMs = 300);
+void connectToWiFi(bool verbose = true);
+void showMessage(const String &msg, int row = 0, bool clearFirst = true, unsigned long waitMs = 0, bool infinite = false);
+void scrollMessage(const String &msg, int row = 0, unsigned long delayMs = 300, bool infinite = false);
 void setupGame1Display();
 void processKeypad();
 
@@ -527,7 +526,7 @@ void displayNextGame() {
 
       // display next game
       showMessage("Next Game: ", 0, true, 0);
-      showMessage(payload, 1, false, 5000);
+      showMessage(payload, 1, false, 5000, true);
 
       showMessage("Press the button", 0, true, 0);
       showMessage("to see magic ;)", 1, false, 0);
@@ -556,29 +555,37 @@ void displayNextGame() {
 
 // ========== LCD FUNCTIONS ==========
 // display helper
-void showMessage(const String &msg, int row, bool clearFirst, unsigned long waitMs) {
+void showMessage(const String &msg, int row, bool clearFirst, unsigned long waitMs, bool infinite) {
   if (clearFirst) lcd.clear();
   lcd.setCursor(0, row);
   if (msg.length() <= lcdColumns) {
     lcd.print(msg);
   } else {
-    scrollMessage(msg, row);
+    scrollMessage(msg, row, 300, infinite);
   }
   if (waitMs) delay(waitMs);
 }
 
 // scroll long messages
-void scrollMessage(const String &msg, int row, unsigned long delayMs) {
+void scrollMessage(const String &msg, int row, unsigned long delayMs, bool infinite) {
   int len = msg.length();
   int total = len + lcdColumns;
-  for (int offset = 0; offset <= total; offset++) {
-    lcd.setCursor(0, row);
-    for (int i = 0; i < lcdColumns; i++) {
-      int idx = offset + i - lcdColumns;
-      if (idx >= 0 && idx < len) lcd.print(msg[idx]); else lcd.print(' ');
+  int count = 0;
+
+  do {
+    for (int offset = 0; offset <= total; offset++) {
+      lcd.setCursor(0, row);
+      for (int i = 0; i < lcdColumns; i++) {
+        int idx = offset + i - lcdColumns;
+        if (idx >= 0 && idx < len)
+          lcd.print(msg[idx]);
+        else
+          lcd.print(' ');
+      }
+      delay(delayMs);
     }
-    delay(delayMs);
-  }
+    count++;
+  } while (infinite && count < 5);  // repeat 5 scrolls if infinite
 }
 
 // initial prompt
